@@ -1,6 +1,9 @@
 <?php
+
 namespace UpsPhpAuthCodeSdk;
-class TokenInfo {
+
+class TokenInfo
+{
     public $refresh_token_expires_in;
     public $refresh_token_status;
     public $issued_at;
@@ -12,7 +15,8 @@ class TokenInfo {
     public $expires_in;
     public $status;
 
-    public function to_dict() {
+    public function toArray()
+    {
         return array(
             "refresh_token_expires_in" => $this->refresh_token_expires_in,
             "refresh_token_status" => $this->refresh_token_status,
@@ -27,17 +31,3 @@ class TokenInfo {
         );
     }
 }
-
-class LoginInfo {
-    public $redirect_uri;
-    public function __construct($redirect_uri)
-    {
-        $this->redirect_uri = $redirect_uri;
-    }
-    public function to_dict() {
-        return array(
-            "redirect_uri" => $this->redirect_uri
-        );
-    }
-}
-?>

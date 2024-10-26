@@ -1,17 +1,21 @@
 <?php
+
 namespace UpsPhpAuthCodeSdk;
+
 require_once 'AuthCodeConstants.php';
 
-class HttpClient {
-    public function post($url, $headers, $postFields, $requestType) {
+class HttpClient
+{
+    public function post($url, $headers, $postFields, $requestType)
+    {
         $ch = curl_init();
-        if($requestType == 'GET'){
+        if ($requestType == 'GET') {
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_TIMEOUT, AuthCodeConstants::GET_TIMEOUT);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         }
-        if($requestType == 'POST'){
+        if ($requestType == 'POST') {
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($ch, CURLOPT_TIMEOUT, AuthCodeConstants::POST_TIMEOUT);

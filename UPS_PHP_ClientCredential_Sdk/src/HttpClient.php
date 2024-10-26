@@ -1,11 +1,15 @@
 <?php
+
 namespace UpsPhpClientCredentialSdk;
+
+use Exception;
 
 class HttpClient
 {
     private $timeout;
-    
-    public function __construct($timeout = 15) {
+
+    public function __construct($timeout = 15)
+    {
         $this->timeout = $timeout;
     }
 
@@ -26,13 +30,14 @@ class HttpClient
         curl_close($ch);
 
         if (!empty($error_msg)) {
-            throw new \Exception($error_msg);
+            throw new Exception($error_msg);
         }
-        
+
         return [
             'status_code' => $statusCode,
             'response' => $response
         ];
     }
 }
-?>
+
+

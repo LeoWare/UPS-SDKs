@@ -1,5 +1,7 @@
 <?php
+
 namespace UpsPhpAuthCodeSdk;
+
 class UpsOauthResponse
 {
     public $response;
@@ -11,7 +13,7 @@ class UpsOauthResponse
         $this->error = $error;
     }
 
-    public function to_dict()
+    public function toArray()
     {
         return [
             "response" => $this->response,
@@ -19,16 +21,3 @@ class UpsOauthResponse
         ];
     }
 }
-
-class ErrorModel
-{
-    public $code;
-    public $message;
-
-    public function __construct($code, $message)
-    {
-        $this->code = $code;
-        $this->message = $message;
-    }
-}
-?>
